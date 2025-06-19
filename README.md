@@ -1,6 +1,17 @@
-# NetWanter
+<div align="center">
+  <img src="public/img/logo-128.png" alt="NetWanter Logo" width="128" height="128">
+  <h1>NetWanter</h1>
+  <p><em>一个基于 Vite + Vue 3 + TypeScript 构建的强大Chrome DevTools扩展，专门用于高级网络请求分析和监控（Manifest v3）</em></p>
 
-> 一个基于 Vite + Vue 3 + TypeScript 构建的强大Chrome DevTools扩展，专门用于高级网络请求分析和监控（Manifest v3）
+  ![Chrome Extension](https://img.shields.io/badge/Chrome-Extension-blue?style=flat-square&logo=google-chrome)
+  ![Manifest v3](https://img.shields.io/badge/Manifest-v3-green?style=flat-square)
+  ![Vue 3](https://img.shields.io/badge/Vue-3-4FC08D?style=flat-square&logo=vue.js)
+  ![TypeScript](https://img.shields.io/badge/TypeScript-blue?style=flat-square&logo=typescript)
+  ![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite)
+  ![MIT License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)
+</div>
+
+---
 
 ## 功能特性
 
@@ -11,6 +22,10 @@
 - ⚡ **实时监控** - 支持开始/停止网络活动录制
 - 📋 **多格式支持** - 支持JSON、原始文本等多种数据格式查看
 - 🛠️ **开发者友好** - 专为Web开发者优化的工具
+
+## 预览截图
+
+> 💡 **提示**: 这里将显示扩展的实际界面截图。您可以在开发完成后替换为真实的界面截图。
 
 ## 技术栈
 

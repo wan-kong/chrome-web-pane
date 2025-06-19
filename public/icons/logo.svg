@@ -1,2 +1,107 @@
-<?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1656468723058" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3824" width="256" height="256" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><style type="text/css">@font-face { font-family: feedback-iconfont; src: url("//at.alicdn.com/t/font_1031158_u69w8yhxdu.woff2?t=1630033759944") format("woff2"), url("//at.alicdn.com/t/font_1031158_u69w8yhxdu.woff?t=1630033759944") format("woff"), url("//at.alicdn.com/t/font_1031158_u69w8yhxdu.ttf?t=1630033759944") format("truetype"); }
-</style></defs><path d="M512 0C228.266667 0 0 228.266667 0 512s228.266667 512 512 512 512-228.266667 512-512S795.733333 0 512 0z m224 727.466667c0 23.466667-17.066667 40.533333-40.533333 40.533333H328.533333c-21.333333 0-40.533333-19.2-40.533333-40.533333V296.533333c0-23.466667 17.066667-40.533333 40.533333-40.533333h366.933334c21.333333 0 40.533333 19.2 40.533333 40.533333v430.933334z" fill="#42b983" p-id="3825" data-spm-anchor-id="a313x.7781069.0.i0" class="selected"></path><path d="M473.6 727.466667h221.866667V411.733333H473.6v315.733334zM328.533333 727.466667h106.666667V411.733333h-106.666667v315.733334zM328.533333 296.533333v74.666667h369.066667V298.666667H328.533333z" fill="#42b983" p-id="3826" data-spm-anchor-id="a313x.7781069.0.i2" class="selected"></path></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- 主要渐变 -->
+    <linearGradient id="primaryGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#6366F1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- 背景圆圈渐变 -->
+    <radialGradient id="bgGradient" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#F0F9FF;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#DBEAFE;stop-opacity:0.3" />
+    </radialGradient>
+    
+    <!-- 网络连接线渐变 -->
+    <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#10B981;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#34D399;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- 阴影 -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000000" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+  
+  <!-- 背景圆圈 -->
+  <circle cx="128" cy="128" r="120" fill="url(#bgGradient)" filter="url(#shadow)"/>
+  
+  <!-- 主要图标容器 -->
+  <g transform="translate(128, 128)">
+    
+    <!-- 中心监控器/雷达 -->
+    <circle cx="0" cy="0" r="32" fill="url(#primaryGradient)" opacity="0.9"/>
+    <circle cx="0" cy="0" r="24" fill="none" stroke="white" stroke-width="2" opacity="0.8"/>
+    <circle cx="0" cy="0" r="16" fill="none" stroke="white" stroke-width="1.5" opacity="0.6"/>
+    <circle cx="0" cy="0" r="8" fill="white" opacity="0.9"/>
+    
+    <!-- 雷达扫描线 -->
+    <g opacity="0.7">
+      <line x1="0" y1="0" x2="0" y2="-28" stroke="white" stroke-width="2" stroke-linecap="round"/>
+      <animateTransform attributeName="transform" type="rotate" values="0;360" dur="3s" repeatCount="indefinite"/>
+    </g>
+    
+    <!-- 网络节点 -->
+    <!-- 上方节点 -->
+    <circle cx="0" cy="-60" r="6" fill="url(#primaryGradient)"/>
+    <circle cx="-42" cy="-42" r="5" fill="url(#primaryGradient)"/>
+    <circle cx="42" cy="-42" r="5" fill="url(#primaryGradient)"/>
+    
+    <!-- 侧方节点 -->
+    <circle cx="-60" cy="0" r="6" fill="url(#primaryGradient)"/>
+    <circle cx="60" cy="0" r="6" fill="url(#primaryGradient)"/>
+    
+    <!-- 下方节点 -->
+    <circle cx="-42" cy="42" r="5" fill="url(#primaryGradient)"/>
+    <circle cx="42" cy="42" r="5" fill="url(#primaryGradient)"/>
+    <circle cx="0" cy="60" r="6" fill="url(#primaryGradient)"/>
+    
+    <!-- 连接线 -->
+    <g stroke="url(#lineGradient)" stroke-width="2" opacity="0.6">
+      <!-- 到上方节点的连接 -->
+      <line x1="0" y1="-32" x2="0" y2="-54"/>
+      <line x1="-22" y1="-22" x2="-37" y2="-37"/>
+      <line x1="22" y1="-22" x2="37" y2="-37"/>
+      
+      <!-- 到侧方节点的连接 -->
+      <line x1="-32" y1="0" x2="-54" y2="0"/>
+      <line x1="32" y1="0" x2="54" y2="0"/>
+      
+      <!-- 到下方节点的连接 -->
+      <line x1="-22" y1="22" x2="-37" y2="37"/>
+      <line x1="22" y1="22" x2="37" y2="37"/>
+      <line x1="0" y1="32" x2="0" y2="54"/>
+    </g>
+    
+    <!-- 数据流动效果 -->
+    <g opacity="0.8">
+      <!-- 流动的数据包 -->
+      <circle r="2" fill="#10B981">
+        <animateMotion dur="2s" repeatCount="indefinite" path="M 0,-32 L 0,-54"/>
+      </circle>
+      <circle r="2" fill="#34D399">
+        <animateMotion dur="2.5s" repeatCount="indefinite" path="M 32,0 L 54,0"/>
+      </circle>
+      <circle r="2" fill="#10B981">
+        <animateMotion dur="2.2s" repeatCount="indefinite" path="M -32,0 L -54,0"/>
+      </circle>
+    </g>
+    
+    <!-- 外围光晕效果 -->
+    <circle cx="0" cy="0" r="45" fill="none" stroke="url(#primaryGradient)" stroke-width="1" opacity="0.3">
+      <animate attributeName="r" values="45;50;45" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.3;0.1;0.3" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    
+  </g>
+  
+  <!-- 底部装饰性文字指示器 -->
+  <g transform="translate(128, 200)" opacity="0.6">
+    <rect x="-20" y="-3" width="40" height="6" rx="3" fill="url(#primaryGradient)"/>
+    <text x="0" y="12" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="url(#primaryGradient)">NET</text>
+  </g>
+  
+</svg>
