@@ -1,47 +1,36 @@
 {
   "compilerOptions": {
-    "forceConsistentCasingInFileNames": true,
-    "incremental": true,
     "target": "ESNext",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "strict": true,
+    "jsx": "preserve",
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
     "lib": [
       "ESNext",
       "DOM"
     ],
-    "useDefineForClassFields": true,
-    "module": "ESNext",
-    "moduleResolution": "Bundler",
-    "resolveJsonModule": true,
-    "types": [
-      "chrome-types",
-      "@intlify/unplugin-vue-i18n/messages"
-    ],
-    "strict": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "isolatedModules": true,
-    "skipLibCheck": true,
-    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
     "paths": {
       "@/*": [
         "./src/*"
-      ],
-      "~/*": [
-        "./*"
-      ],
-      "src/*": [
-        "./src/*"
-      ],
-      "@assets/*": [
-        "./src/assets/*"
       ]
-    }
+    },
+    "skipLibCheck": true
   },
   "include": [
-    "package.json",
-    "vite.config.ts",
     "src/**/*.ts",
     "src/**/*.d.ts",
     "src/**/*.tsx",
     "src/**/*.vue"
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
   ]
 }

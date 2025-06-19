@@ -1,225 +1,99 @@
-# Vite Vue 3 Browser Extension (Manifest V3)
+# NetWanter
 
-[![Build Status](https://github.com/mubaidr/vite-vue3-browser-extension-v3/actions/workflows/build.yml/badge.svg)](https://github.com/mubaidr/vite-vue3-browser-extension-v3/actions/workflows/build.yml)
+> 一个基于 Vite + Vue 3 + TypeScript 构建的强大Chrome DevTools扩展，专门用于高级网络请求分析和监控（Manifest v3）
 
-A modern, opinionated starter template for building browser extensions using [Vite](https://vitejs.dev/), [Vue 3](https://vuejs.org/), and Manifest V3. Supports Chrome, Firefox, and more. Includes pre-configured routing, state management, composables, and a rich set of UI components from Nuxt/UI v3. **Now with shadcn-vue support for additional component options!**
+## 功能特性
 
----
+- 🌐 **高级网络监控** - 实时捕获和分析所有网络请求
+- 🔍 **智能搜索过滤** - 支持按URL、方法、状态码等多种条件筛选请求
+- 📊 **详细请求分析** - 查看请求/响应头、请求体、Cookies等详细信息
+- 🎨 **现代化界面** - 基于Tailwind CSS的美观响应式界面
+- ⚡ **实时监控** - 支持开始/停止网络活动录制
+- 📋 **多格式支持** - 支持JSON、原始文本等多种数据格式查看
+- 🛠️ **开发者友好** - 专为Web开发者优化的工具
 
-## 🚀 Features
+## 技术栈
 
-- **Multi-Context Ready**: Boilerplate for background, popup, options, content script, devtools, side panel, and offscreen pages.
-- **File-Based Routing**: Add a file in `src/pages` or relevant UI directory—auto-registered as a route.
-- **Composable Architecture**: Prebuilt composables for i18n, theme, notifications, browser storage, and more.
-- **State Management**: Type-safe Pinia stores (persistent & non-persistent).
-- **UI Components**: Header, Footer, Locale & Theme Switch, Loading Spinner, Error Boundary, Empty State, Notifications, plus shadcn-vue components.
-- **Modern Tooling**: Nuxt/UI 3, Tailwind CSS 4, ESLint, Prettier, auto-imports, and more.
-- **WebExtension Utilities**: `webext-bridge` for context communication, `webextension-polyfill` for browser API compatibility.
+- **前端框架**: Vue 3 + TypeScript
+- **构建工具**: Vite
+- **UI框架**: Tailwind CSS
+- **Chrome扩展**: Manifest v3
+- **开发工具**: ESLint + Prettier
 
----
+## 环境要求
 
-## Screenshots
+1. 确保您的 `Node.js` 版本 >= **16.0.0**
+2. 推荐使用 `pnpm` 作为包管理器
 
-![Screenshot 3](screenshots/Screenshot_20250425_003155.png)
-![Screenshot 3](screenshots/Screenshot_20250425_003220.png)
-![Screenshot 3](screenshots/Screenshot_20250425_003958.png)
+## 安装和开发
 
----
+### 克隆项目
 
-## 🛠️ Development
+```shell
+git clone <repository-url>
+cd chrome-web-pane
+```
 
-### Quick Start
+### 安装依赖
 
-```bash
-npx degit mubaidr/vite-vue3-browser-extension-v3 my-webext
-cd my-webext
+```shell
+pnpm install
+# 或者
 npm install
+```
+
+### 开发模式
+
+```shell
+pnpm dev
+# 或者
 npm run dev
 ```
 
-- **Build**: `npm run build`
-- **Lint**: `npm run lint`
-- **Dev (Chrome/Firefox)**: `npm run dev:chrome` / `npm run dev:firefox`
-- **Build (Chrome/Firefox)**: `npm run build:chrome` / `npm run build:firefox`
+### Chrome扩展开发者模式配置
 
-Load the extension from the `dist/chrome` or `dist/firefox` folder in your browser.
+1. 打开Chrome浏览器，进入扩展管理页面 `chrome://extensions/`
+2. 开启右上角的"开发者模式"
+3. 点击"加载已解压的扩展程序"，选择项目的 `build` 文件夹
+4. 打开任意网页，在开发者工具中找到"Chrome Web Network Analyzer"选项卡
 
-### Adding shadcn-vue Components
+## 构建和打包
 
-To add shadcn-vue components to your extension:
+### 生产构建
 
-```bash
-npx shadcn-vue@latest init
-npx shadcn-vue@latest add button
-npx shadcn-vue@latest add input
-npx shadcn-vue@latest add card
+```shell
+pnpm build
+# 或者
+npm run build
 ```
 
-The components will be automatically configured and ready to use in your Vue files.
+### 打包为ZIP
 
----
-
-## 🧩 Example: useBrowserStorage
-
-```ts
-const { data: syncSettings, promise } = useBrowserSyncStorage('settings', {
-  theme: 'dark',
-  notifications: true,
-  preferences: { language: 'en', fontSize: 14 }
-})
-
-const { data: userProfile } = useBrowserLocalStorage('profile', {
-  name: 'John Doe',
-  lastLogin: null,
-  favorites: ['item1', 'item2']
-})
-
-console.log(syncSettings.value.theme) // 'dark'
-console.log(userProfile.value.name)   // 'John Doe'
+```shell
+pnpm zip
+# 或者
+npm run zip
 ```
 
----
+构建完成后，`build` 文件夹将包含可以提交到Chrome Web Store的扩展文件。
 
-## 🎨 shadcn-vue Integration
+## 使用说明
 
-This template includes [shadcn-vue](https://www.shadcn-vue.com/) for additional high-quality, accessible components. The project is pre-configured with:
+1. 在Chrome开发者工具中打开"Chrome Web Network Analyzer"面板
+2. 点击"开始"按钮开始监听网络活动
+3. 在页面中进行操作触发网络请求
+4. 在列表中点击任意请求查看详细信息
+5. 使用搜索框和方法过滤器来快速找到特定请求
 
-- **Component Installation**: Use `npx shadcn-vue@latest add <component>` to add components
-- **Automatic Integration**: Components work seamlessly with existing Tailwind CSS setup
-- **TypeScript Support**: Full type safety for all shadcn-vue components
-- **Customizable**: Easy theming and customization through CSS variables
+## 发布
 
-### Example: Adding a Button Component
+要将扩展发布到Chrome Web Store，请参考[官方指南](https://developer.chrome.com/webstore/publish)获取更多发布信息。
 
-```bash
-npx shadcn-vue@latest add button
-```
 
-```vue
-<template>
-  <Button variant="default" size="sm" @click="handleClick">
-    Click me
-  </Button>
-</template>
+## 许可证
 
-<script setup lang="ts">
-import { Button } from '@/components/ui/button'
-
-function handleClick() {
-  console.log('Button clicked!')
-}
-</script>
-```
+MIT License
 
 ---
 
-## 🔌 Plugins & Libraries
-
-- **Vite Plugins**: unplugin-vue-router, unplugin-auto-import, unplugin-vue-components, unplugin-icons, unplugin-turbo-console, @intlify/unplugin-vue-i18n
-- **Vue Plugins**: Pinia, VueUse, Notivue, Vue-i18n
-- **UI**: Nuxt/UI, shadcn-vue, Tailwind CSS 4
-- **WebExtension**: webext-bridge, webextension-polyfill
-- **Utilities**: Marked (for markdown rendering)
-- **Coding Style**: TypeScript, ESLint, Prettier
-
----
-
-## 📁 Directory Structure
-
-```bash
-.
-├── dist/                # Built extension files (chrome/firefox)
-├── public/              # Static assets (icons, etc.)
-├── scripts/             # Build/dev scripts
-├── src/                 # Source code
-│   ├── assets/          # Global assets
-│   ├── background/      # Background scripts
-│   ├── components/      # Shared Vue components
-│   ├── composables/     # Vue composables (hooks)
-│   ├── content-script/  # Content scripts
-│   ├── devtools/        # Devtools panel
-│   ├── locales/         # i18n files
-│   ├── offscreen/       # Offscreen pages
-│   ├── stores/          # Pinia stores
-│   ├── types/           # TypeScript definitions
-│   ├── ui/              # UI pages (popup, options, etc.)
-│   └── utils/           # Shared utilities
-├── manifest.config.ts   # Base manifest config
-├── vite.config.ts       # Base Vite config
-├── tailwind.config.cjs  # Tailwind CSS config
-└── package.json         # Dependencies & scripts
-```
-
----
-
-## 💡 Coding Style
-
-- TypeScript with strict types
-- ESLint & Prettier enforced
-- Vue 3 Composition API (`<script setup>`)
-- File-based routing and auto-imports
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Please open issues or submit pull requests for improvements or new features.
-
----
-
-## 🙏 Support
-
-If you find this project useful, please consider [supporting the author](https://www.patreon.com/c/mubaidr) and starring ⭐ the repository.
-
----
-
-## 👥 Contributors
-
-<table>
-<tbody>
-<tr>
-<td align="center">
-<a href="https://github.com/mubaidr">
-<img src="https://avatars.githubusercontent.com/u/2222702?v=4" width="80" alt="mubaidr"/>
-<br /><sub><b>Muhammad Ubaid Raza</b></sub>
-</a>
-</td>
-<td align="center">
-<a href="https://github.com/Dreamlinerm">
-<img src="https://avatars.githubusercontent.com/u/90410608?v=4" width="80" alt="Dreamlinerm"/>
-<br /><sub><b>Dreamliner</b></sub>
-</a>
-</td>
-<td align="center">
-<a href="https://github.com/baramofme">
-<img src="https://avatars.githubusercontent.com/u/44565599?v=4" width="80" alt="baramofme"/>
-<br /><sub><b>Jihoon Yi</b></sub>
-</a>
-</td>
-<td align="center">
-<a href="https://github.com/poncianodiego">
-<img src="https://avatars.githubusercontent.com/u/20716004?v=4" width="80" alt="poncianodiego"/>
-<br /><sub><b>Diego Ponciano</b></sub>
-</a>
-</td>
-<td align="center">
-<a href="https://github.com/IgorFZ">
-<img src="https://avatars.githubusercontent.com/u/85708187?v=4" width="80" alt="IgorFZ"/>
-<br /><sub><b>igorfz</b></sub>
-</a>
-</td>
-<td align="center">
-<a href="https://github.com/hi2code">
-<img src="https://avatars.githubusercontent.com/u/51270649?v=4" width="80" alt="hi2code"/>
-<br /><sub><b>hi2code</b></sub>
-</a>
-</td>
-<td align="center">
-<a href="https://github.com/justorez">
-<img src="https://avatars.githubusercontent.com/u/17308328?v=4" width="80" alt="justorez"/>
-<br /><sub><b>Null</b></sub>
-</a>
-</td>
-</tr>
-</tbody>
-</table>
+由 [create-chrome-ext](https://github.com/guocaoyi/create-chrome-ext) 生成的项目模板
